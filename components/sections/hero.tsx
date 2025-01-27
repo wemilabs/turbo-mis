@@ -7,7 +7,7 @@ export function Hero() {
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col items-center text-center space-y-4 pt-8">
           <span className="text-sm text-primary font-medium -tracking-tight bg-yellow-500/55 px-4 py-2 rounded-full">
-            Introducing Turbo C-25.3 0.1.0
+            Introducing Turbo C-25.3 v0.1.0
           </span>
 
           <h1 className="mt-8 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tighter">
