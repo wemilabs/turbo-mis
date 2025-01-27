@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 import { Header } from "@/components/layout/header";
@@ -40,7 +41,10 @@ export default function RootLayout({
           enableSystem
         >
           <Header />
-          <main className="flex flex-col min-h-screen">{children}</main>
+          <main className="flex flex-col min-h-screen">
+            {children}
+            <Analytics />
+          </main>
           <Footer />
         </ThemeProvider>
       </body>
