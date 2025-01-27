@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Turbo C-25.3 - Powering the smartest academic institutions
 
-## Getting Started
+## 1. System Overview
 
-First, run the development server:
+### 1.1 Project Purpose
+
+A comprehensive, secured, robust, and easy-to-use Learning Management System designed for educational institutions, streamlining course management, student tracking, and administrative tasks. The most powerful, fast and effective learning management system ever made.
+
+### 1.2 Core Features
+
+The system consists of the following main components:
+
+1. **Learning Management System**: Turbo C-25.3 is a comprehensive LMS/MIS designed to streamline course management, student tracking, and administrative tasks.
+2. **Turbo Embedded Intelligence Engine (TEIE)**: Turbo C-25.3 features an Embedded Intelligence Engine (EIE) that enables it to perform tasks that existing solutions can't. It's not a usual LMS/MIS, we are in a new era. Turbo C-25.3 is a real smart assistant right here in your computer to help you manage your institution.
+3. **Performance Analytics**: Turbo C-25.3 provides real-time performance analytics, helping institutions identify areas for improvement and make data-driven decisions.
+4. **Accounting**: Turbo C-25.3 offers comprehensive accounting features, enabling institutions to track financial transactions and generate reports.
+5. **AI, Machine Learning, and more**: Turbo C-25.3 is equipped with advanced AI capabilities, including Machine Learning, Natural Language Processing, and more. It can analyze data from your institution, provide insights for decision-making, help you fulfill tasks faster and better, and much more.
+
+## 2. Wanna Try It Yourself?
+
+First, clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone https://github.com/wemilabs/turbo-mis.git
+```
+
+Then, install dependencies:
+
+```bash
+cd turbo-mis
+pnpm install
+```
+
+Finally, run the development server:
+
+```bash
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 3. Actual State
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is a type-safe [Next.js](https://nextjs.org/) project currently in development phase. We're working hard to bring you the best experience possible. Stay tuned for updates!
