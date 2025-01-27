@@ -19,7 +19,7 @@ export default function NotFound() {
       </p> */}
       <h1 className="text-4xl font-bold mb-4">Oops!</h1>
       <p className="text-xl text-muted-foreground mb-8">
-        v0.1.0: the page you're looking for is currently under construction.
+        v0.1.0: the page you are looking for is currently under construction.
       </p>
 
       <Link
