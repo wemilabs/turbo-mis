@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
-import { Button } from "@/components/ui/button"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -11,17 +11,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import jobPositions from "@/data/job-positions.json"
+} from "@/components/ui/select";
+import jobPositions from "@/data/job-positions.json";
 
 // Form validation schema
 const formSchema = z.object({
@@ -34,7 +34,7 @@ const formSchema = z.object({
   coverLetter: z.string().min(50, {
     message: "Cover letter must be at least 50 characters.",
   }),
-})
+});
 
 export function JobApplicationForm() {
   // Initialize form with react-hook-form and zod validation
@@ -45,11 +45,11 @@ export function JobApplicationForm() {
       position: "",
       coverLetter: "",
     },
-  })
+  });
 
   // Handle form submission
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+    console.log(values);
     // TODO: Implement email submission
   }
 
@@ -110,8 +110,10 @@ export function JobApplicationForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full">Apply Now</Button>
+        <Button type="submit" className="w-full">
+          Apply Now
+        </Button>
       </form>
     </Form>
-  )
+  );
 }
