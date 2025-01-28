@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "@/styles/globals.css";
 
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
+import { ThemeProvider } from "@/components/provider/theme-provider";
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  adjustFontFallback: true,
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  adjustFontFallback: true,
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Turbo MIS | Powering the smartest academic institutions",
@@ -36,12 +45,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function AppLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <>
-      <Header />
-      <main className="flex flex-col min-h-screen">{children}</main>
-      <Footer />
-    </>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.className} antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          disableTransitionOnChange={false}
+          enableSystem
+        >
+          {children}
+          <Analytics />
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
