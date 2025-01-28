@@ -1,0 +1,44 @@
+{
+  "positions": [
+    {
+      "id": "software-engineer",
+      "title": "Software Engineer",
+      "category": "Engineering"
+    },
+    {
+      "id": "devops-engineer",
+      "title": "DevOps Engineer",
+      "category": "Engineering"
+    },
+    {
+      "id": "frontend-developer",
+      "title": "Frontend Developer",
+      "category": "Engineering"
+    },
+    {
+      "id": "backend-developer",
+      "title": "Backend Developer",
+      "category": "Engineering"
+    },
+    {
+      "id": "ui-ux-designer",
+      "title": "UI/UX Designer",
+      "category": "Design"
+    },
+    {
+      "id": "product-designer",
+      "title": "Product Designer",
+      "category": "Design"
+    },
+    {
+      "id": "product-manager",
+      "title": "Product Manager",
+      "category": "Management"
+    },
+    {
+      "id": "project-manager",
+      "title": "Project Manager",
+      "category": "Management"
+    }
+  ]
+}
