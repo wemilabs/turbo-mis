@@ -22,9 +22,10 @@ export default function Page() {
         className="my-8 rounded-md"
       />
 
-      <h1 className="text-4xl font-bold mb-4">Great!</h1>
+      <h1 className="text-4xl font-bold mb-4">Great!🙂</h1>
       <p className="text-muted-foreground mb-8">
-        Your job application has been successfully submitted.
+        Your job application has been successfully submitted. We will get in
+        touch with you shortly.
       </p>
 
       <Link
