@@ -39,6 +39,31 @@
       "id": "project-manager",
       "title": "Project Manager",
       "category": "Management"
+    },
+    {
+      "id": "quality-assurance-engineer",
+      "title": "Quality Assurance Engineer",
+      "category": "Engineering"
+    },
+    {
+      "id": "technical-writer",
+      "title": "Technical Writer",
+      "category": "Engineering"
+    },
+    {
+      "id": "content-creator",
+      "title": "Content Creator",
+      "category": "Engineering"
+    },
+    {
+      "id": "data-analyst",
+      "title": "Data Analyst",
+      "category": "Engineering"
+    },
+    {
+      "id": "data-science-engineer",
+      "title": "Data Science Engineer",
+      "category": "Engineering"
     }
   ]
 }

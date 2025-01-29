@@ -14,22 +14,23 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import jobPositions from "@/data/job-positions.json";
+import { useState } from "react";
+import { sendJobApplication } from "@/app/actions/send-job-application";
+import { toast } from "sonner";
+import { LoaderCircle } from "lucide-react";
+import { useParams, useRouter } from "next/navigation";
 
 // Form validation schema
 const formSchema = z.object({
-  fullName: z.string().min(2, {
-    message: "Full name must be at least 2 characters.",
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
   }),
-  position: z.string({
-    required_error: "Please select a position.",
+  email: z.string().email({
+    message: "Please enter a valid email address.",
+  }),
+  position: z.string().min(1, {
+    message: "Please select a position.",
   }),
   coverLetter: z.string().min(50, {
     message: "Cover letter must be at least 50 characters.",
@@ -37,20 +38,61 @@ const formSchema = z.object({
 });
 
 export function JobApplicationForm() {
+  // Move all hooks to the top level
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
+  const params = useParams();
+  const id = typeof params?.id === "string" ? params.id : "";
+
+  // Find the job position
+  const job = jobPositions.positions.find((p) => p.id === id);
+
   // Initialize form with react-hook-form and zod validation
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fullName: "",
-      position: "",
+      name: "",
+      email: "",
+      position: job?.title ?? "",
       coverLetter: "",
     },
   });
 
   // Handle form submission
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    // TODO: Implement email submission
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+    try {
+      const formData = new FormData();
+      Object.entries(values).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+
+      const result = await sendJobApplication(formData);
+
+      if (result.error) {
+        toast.error(result.error);
+      } else {
+        router.push(`/careers/${id}/apply/success`);
+        toast.success(
+          "Application submitted successfully!\nWe'll be in touch soon!"
+        );
+        form.reset();
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  // Return early if no job found
+  if (!job) {
+    return (
+      <div className="text-center py-8">
+        <p className="text-muted-foreground">Position not found.</p>
+      </div>
+    );
   }
 
   return (
@@ -58,7 +100,7 @@ export function JobApplicationForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="fullName"
+          name="name"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Full Name</FormLabel>
@@ -69,30 +111,35 @@ export function JobApplicationForm() {
             </FormItem>
           )}
         />
+
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input placeholder="john@example.com" type="email" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         <FormField
           control={form.control}
           name="position"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Position</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a position" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  {jobPositions.positions.map((position) => (
-                    <SelectItem key={position.id} value={position.id}>
-                      {position.title}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <FormControl>
+                <Input {...field} disabled />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="coverLetter"
@@ -101,7 +148,7 @@ export function JobApplicationForm() {
               <FormLabel>Cover Letter</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Tell us why you'd be a great fit..."
+                  placeholder="Tell us why you're interested in this position and what makes you a great fit..."
                   className="min-h-[200px]"
                   {...field}
                 />
@@ -110,8 +157,16 @@ export function JobApplicationForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full">
-          Apply Now
+
+        <Button type="submit" disabled={isSubmitting} className="w-full">
+          {isSubmitting ? (
+            <>
+              <LoaderCircle className="mr-2 size-4 animate-[spin_0.25s_linear_infinite]" />
+              Submitting...
+            </>
+          ) : (
+            "Apply Now"
+          )}
         </Button>
       </form>
     </Form>

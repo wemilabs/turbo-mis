@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import "@/styles/globals.css";
 
 import { ThemeProvider } from "@/components/provider/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Turbo MIS",
     images: [
       {
-        url: "https://turbo-mis.vercel.app/og.png",
+        url: "https://turbo-mis.vercel.app/images/turbo.webp",
         width: 1200,
         height: 630,
         alt: "Turbo MIS",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Turbo MIS | Powering the smartest academic institutions",
     description: "A fast and easy-to-use learning management system.",
-    images: ["https://turbo-mis.vercel.app/og.png"],
+    images: ["https://turbo-mis.vercel.app/images/turbo.webp"],
   },
 };
 
@@ -63,6 +64,7 @@ export default function AppLayout({
         >
           {children}
           <Analytics />
+          <Toaster richColors closeButton />
         </ThemeProvider>
       </body>
     </html>

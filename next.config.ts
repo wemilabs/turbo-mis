@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* Next.js configuration options go here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "static.vecteezy.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
