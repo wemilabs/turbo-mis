@@ -77,7 +77,7 @@ export default function AppLayout({
       <body className={geistMono.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           disableTransitionOnChange={false}
           enableSystem
         >
