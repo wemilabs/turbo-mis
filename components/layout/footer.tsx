@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { Logo } from "@/components/layout/logo";
+
 const footerLinks = {
   product: [
     { label: "Features", href: "/features" },
@@ -24,11 +26,7 @@ export function Footer() {
       <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
-            <Link href="/" className="flex items-center space-x-2">
-              <h1 className="text-2xl font-bold">
-                Turbo<span className="text-yellow-500 text-base">.MIS</span>
-              </h1>
-            </Link>
+            <Logo />
             <p className="mt-2 text-sm text-muted-foreground">
               Making education management simple and effective
             </p>

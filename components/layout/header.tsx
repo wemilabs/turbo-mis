@@ -1,15 +1,13 @@
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 
+import { Logo } from "@/components/layout/logo";
+
 export function Header() {
   return (
     <header className="fixed top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex max-w-7xl items-center mx-auto py-5 px-4 md:px-6 lg:px-8">
-        <Link href="/" className="flex items-center space-x-2">
-          <h1 className="text-2xl font-bold">
-            Turbo<span className="text-yellow-500 text-base">.MIS</span>
-          </h1>
-        </Link>
+        <Logo />
         <nav className="flex flex-1 items-center justify-end space-x-6">
           <Link
             href="/features"
@@ -28,6 +26,12 @@ export function Header() {
             className="hidden sm:inline-block text-sm font-medium hover:text-yellow-500"
           >
             About
+          </Link>
+          <Link
+            href="/careers"
+            className="hidden sm:inline-block text-sm font-medium hover:text-yellow-500"
+          >
+            Careers
           </Link>
           <Link
             href="/signin"
