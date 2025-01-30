@@ -41,6 +41,11 @@
       "category": "Management"
     },
     {
+      "id": "sales-manager",
+      "title": "Sales Manager",
+      "category": "Management"
+    },
+    {
       "id": "quality-assurance-engineer",
       "title": "Quality Assurance Engineer",
       "category": "Engineering"
@@ -61,8 +66,8 @@
       "category": "Engineering"
     },
     {
-      "id": "data-science-engineer",
-      "title": "Data Science Engineer",
+      "id": "data-scientist",
+      "title": "Data Scientist",
       "category": "Engineering"
     }
   ]

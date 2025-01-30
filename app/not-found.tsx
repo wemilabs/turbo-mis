@@ -22,12 +22,11 @@ export default function NotFound() {
       />
       {/* <h1 className="text-4xl font-bold mb-4">Oops! Page Not Found</h1>
       <p className="text-muted-foreground mb-8">
-      The page you are looking for does not exist or has been moved.
+      The page you're looking for does not exist or has been moved.
       </p> */}
       <h1 className="text-4xl font-bold mb-4">Oops!</h1>
       <p className="text-muted-foreground mb-8">
-        v0.1.0: the page you are looking for is currently under
-        construction...🙂
+        v0.1.0: the page you're looking for is currently under construction...🙂
       </p>
 
       <Link
