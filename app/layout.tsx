@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Turbo MIS | Powering the smartest academic institutions",
-  description: "Next generation school management system",
+  description: "Next-generation school management system",
   metadataBase: new URL("https://turbo-mis.vercel.app/"),
   keywords: [
     "school management",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://turbo-mis.vercel.app/",
     title: "Turbo MIS | Powering the smartest academic institutions",
-    description: "Next generation school management system",
+    description: "Next-generation school management system",
     siteName: "Turbo MIS",
     images: [
       {
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Turbo MIS | Powering the smartest academic institutions",
-    description: "Next generation school management system",
+    description: "Next-generation school management system",
     images: ["https://turbo-mis.vercel.app/images/turbo.webp"],
     creator: "@DorianTho5",
   },

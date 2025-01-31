@@ -28,8 +28,8 @@ export async function sendJobApplication(formData: FormData) {
 
     // Send email
     const { data, error } = await resend.emails.send({
-      from: "Turbo MIS Careers <onboarding@resend.dev>",
-      to: ["dmozart921@gmail.com"],
+      from: process.env.TURBO_MIS_DEFAULT_PUBLIC_SENDER_EMAIL_ADDRESS!,
+      to: [process.env.TURBO_MIS_DEFAULT_PUBLIC_RECEPIENT_EMAIL_ADDRESS!],
       subject: `New Job Application: ${validatedData.position}`,
       react: EmailTemplate(validatedData),
     });
