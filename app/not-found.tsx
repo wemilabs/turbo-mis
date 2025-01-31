@@ -7,7 +7,7 @@ import notFoundIllustration from "@/public/images/404-under-construction.webp";
 
 export const metadata: Metadata = {
   title: "404 Not Found | Turbo MIS",
-  description: "The page you are looking for is currently under construction.",
+  description: "The page you're looking for is currently under construction.",
 };
 
 export default function NotFound() {
